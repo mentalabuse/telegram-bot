@@ -30,7 +30,7 @@ const start = async () => {
   bot.setMyCommands([
     {command: '/start', description: 'Приветствие'},
     {command: '/info', description: 'Информация'},
-    {command: '/game', description: 'Игра на калич'}
+    {command: '/game', description: 'Игра'}
   ])
   
   bot.on('message', async msg => {
