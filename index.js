@@ -1,7 +1,8 @@
 const TelegramApi = require('node-telegram-bot-api')
+require('dotenv').config()
 const {gameOptions, againOptions} = require('./options')
 
-const token = '1928003848:AAG6CW25c5UsW9pGQNJuT7OZHZvF546ixp4'
+const token = process.env.BOT_TOKEN
 
 const bot = new TelegramApi(token, {polling: true})
 
@@ -12,7 +13,6 @@ const startGame = async (chatId) => {
   await bot.sendMessage(chatId, 'Сейчас я загадаю цифру от 0 до 9, а ты отгадай')
   const randomNumber = Math.floor(Math.random() * 10)
   chats[chatId] = randomNumber
-  console.log(chats[chatId]);
   await bot.sendMessage(chatId, 'Отгадывай', gameOptions)
   }
 
